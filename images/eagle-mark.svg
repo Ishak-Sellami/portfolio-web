@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  EAGLE MARK — the compact logo used in the navigation bar and the footer.
+  It is the same geometry as the big hero eagle, cropped tight.
+  Colours are hard-coded because the file is loaded through <img>,
+  which cannot inherit CSS custom properties from the page.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="8 20 304 206" role="img" aria-label="Eagle mark">
+  <!-- Soft accent glow behind the silhouette (adds depth without looking "neon"). -->
+  <defs>
+    <linearGradient id="markFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+  </defs>
+
+  <path
+    fill="url(#markFill)"
+    d="M150 40 L168 47 L189 59 L166 65 L161 86 L178 97 L302 28 L264 116 L275 141
+       L233 127 L242 153 L198 138 L199 159 L168 149 L173 170 L160 216 L147 170
+       L152 149 L121 159 L122 138 L78 153 L87 127 L45 141 L56 116 L18 28
+       L142 97 L159 86 Z" />
+</svg>

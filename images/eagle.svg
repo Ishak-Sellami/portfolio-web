@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  HERO EAGLE — "technical eagle": a geometric silhouette drawn as an engineering
+  blueprint.  Built from simple shapes only (lines, circles, one polygon path),
+  so it stays crisp on every screen size and easy to study.
+
+  Layers, back to front:
+    1. grid pattern  -> suggests a technical drawing / workspace
+    2. concentric rings + crosshair -> targeting / scope motif
+    3. eagle silhouette (faint fill + accent outline)
+    4. vertex nodes + corner brackets -> "constructed from points" feel
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 520" role="img"
+     aria-label="Abstract geometric eagle built from straight lines, drawn like an engineering blueprint">
+
+  <defs>
+    <!-- Faint blueprint grid -->
+    <pattern id="eagleGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#34d399" stroke-width="0.6" opacity="0.16" />
+    </pattern>
+
+    <!-- Accent used for the silhouette outline -->
+    <linearGradient id="eagleStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a7f3d0" />
+      <stop offset="55%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+
+    <linearGradient id="eagleBody" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0.02" />
+    </linearGradient>
+
+    <radialGradient id="eagleGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- 1. soft glow behind everything -->
+  <circle cx="280" cy="260" r="235" fill="url(#eagleGlow)" />
+
+  <!-- 2. blueprint grid, clipped to a circle so the edges fade naturally -->
+  <defs>
+    <clipPath id="eagleClip">
+      <circle cx="280" cy="260" r="215" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#eagleClip)">
+    <rect x="60" y="40" width="440" height="440" fill="url(#eagleGrid)" />
+  </g>
+
+  <!-- 3. scope rings -->
+  <g fill="none" stroke="#34d399">
+    <circle cx="280" cy="260" r="215" stroke-opacity="0.18" />
+    <circle cx="280" cy="260" r="160" stroke-opacity="0.12" stroke-dasharray="3 9" />
+    <circle cx="280" cy="260" r="108" stroke-opacity="0.10" />
+  </g>
+
+  <!-- 4. crosshair -->
+  <g stroke="#34d399" stroke-opacity="0.14">
+    <line x1="40" y1="260" x2="520" y2="260" />
+    <line x1="280" y1="20" x2="280" y2="500" />
+  </g>
+
+  <!-- 5. the eagle itself: same geometry as eagle-mark.svg, scaled and centred -->
+  <g transform="translate(64 96) scale(1.35)">
+    <path
+      d="M150 40 L168 47 L189 59 L166 65 L161 86 L178 97 L302 28 L264 116 L275 141
+         L233 127 L242 153 L198 138 L199 159 L168 149 L173 170 L160 216 L147 170
+         L152 149 L121 159 L122 138 L78 153 L87 127 L45 141 L56 116 L18 28
+         L142 97 L159 86 Z"
+      fill="url(#eagleBody)"
+      stroke="url(#eagleStroke)"
+      stroke-width="2.5"
+      stroke-linejoin="miter" />
+
+    <!-- primary feather separations, mirrored on both wings -->
+    <g fill="none" stroke="#34d399" stroke-opacity="0.45" stroke-width="2">
+      <path d="M178 97 L264 116" />
+      <path d="M142 97 L56 116" />
+      <path d="M198 138 L233 127" />
+      <path d="M122 138 L87 127" />
+    </g>
+
+    <!-- vertex nodes: the points the shape is "built from" -->
+    <g fill="#07090b" stroke="#a7f3d0" stroke-width="2">
+      <circle cx="302" cy="28" r="5" />
+      <circle cx="18" cy="28" r="5" />
+      <circle cx="189" cy="59" r="5" />
+      <circle cx="160" cy="216" r="5" />
+    </g>
+  </g>
+
+  <!-- 6. corner brackets — HUD frame -->
+  <g fill="none" stroke="#34d399" stroke-opacity="0.5" stroke-width="2">
+    <path d="M60 90 V60 H90" />
+    <path d="M470 60 H500 V90" />
+    <path d="M60 430 V460 H90" />
+    <path d="M470 460 H500 V430" />
+  </g>
+</svg>
